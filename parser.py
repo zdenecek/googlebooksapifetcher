@@ -64,15 +64,16 @@ def workResponse(response):
             return False
     else:
         print("Kniha nebyla nalezena...")
-        return false
+        return False
     data.append(book)
     return False
 
 def parseBook(jsonData):
     isbn = "*Nemá isbn"
-    for e in jsonData["volumeInfo"]["industryIdentifiers"]:
-        if e['type'] == "ISBN_13":
-            isbn = e["identifier"]
+    if "industryIdentifiers" in jsonData["volumeInfo"]:
+        for e in jsonData["volumeInfo"]["industryIdentifiers"]:
+            if e['type'] == "ISBN_13":
+                isbn = e["identifier"]
 
     authors = ",".join(jsonData["volumeInfo"]['authors']) if 'authors' in jsonData["volumeInfo"] else "*Nemá autora"
 
