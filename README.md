@@ -1,8 +1,8 @@
 # googlebooksapifetcher
-Fetcher pro google books api
+Fetcher pro google books, funguje díky veřejnému API
 
 Textový program umožnuje v google books:
-1 - hledat ISBN z csv souboru
-2 - hledat ISBN zadáním
-3 - hledat pomoci textu
-4 - uložit dosavadní výsledky do csv souboru
+- hledat ISBN z csv souboru
+- hledat ISBN zadáním
+- hledat pomoci textu
+- uložit dosavadní výsledky do csv souboru
