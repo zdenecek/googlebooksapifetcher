@@ -25,8 +25,8 @@ def searchISBNFromFile():
 
 def saveToFile():
     with open(getFileName(), 'w', newline='') as f:
-        writer = csv.writer(f, delimiter=";")
-        writer.writerows(data.values())
+        writer = csv.writer(f, dialect='excel')
+        writer.writerows([book.values() for book in data])
 
 def searchISBN(isbn):
     print(f"Hledám data ke knize s ISBN: {str(isbn)}")
@@ -77,9 +77,9 @@ def parseBook(jsonData):
     authors = ",".join(jsonData["volumeInfo"]['authors']) if 'authors' in jsonData["volumeInfo"] else "*Nemá autora"
 
     return {
-        "title" : f"\"{jsonData['volumeInfo']['title']}\"",
+        "title" : f"{jsonData['volumeInfo']['title']}",
         "isbn" : isbn,
-        "authors": f"\"{authors}\""
+        "authors": f"{authors}"
     }
 
 def printBook(book):
@@ -99,6 +99,12 @@ def deleteEntry():
         print("## Chyba při mazání")
 
 
+def test():
+    print("** Spouštím test")
+    searchISBN(9781338160215)
+    searchText("Harry , Potter")
+    print("** Konec testu")
+
 
 data = []
 
@@ -109,10 +115,9 @@ options = {
     "p": lambda: printBooks(data),
     "s": saveToFile,
     "d": deleteEntry,
-    "x": exit
+    "x": exit,
+    "t": test
 }
-
-searchISBN(9781451648546)
 
 desc = f'''
 
