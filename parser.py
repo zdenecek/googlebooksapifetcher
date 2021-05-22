@@ -36,7 +36,6 @@ def searchISBN(isbn):
 def searchText(q, page = 0):
     print(f"Hledám data ke knize pomocí řetězce: {q}")
     url = f'https://www.googleapis.com/books/v1/volumes?startIndex={page*40}&maxResults=40&q={requests.utils.quote(q)}'
-    print(url)
     response = requests.get(url)
     next = workResponse(response)
     if(next):
