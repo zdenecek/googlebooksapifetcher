@@ -50,6 +50,8 @@ def workResponse(response):
         print(" - " + printBook(book))
     elif(l > 1):
         print(f"Bylo nalezeno více výsledků ({l}):")
+        if 'items' not in res:
+            return
         books = list(map(lambda d: parseBook(d), res['items']))
         printBooks(books)
         try:
