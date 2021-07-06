@@ -7,7 +7,7 @@ def exit():
         quit()
 
 def getFileName():
-    return input('Zadejte soubor (nazev souboru ve slozce skriptu nebo s cestou)\n')
+    return input('Zadejte soubor (nazev souboru ve slozce skriptu nebo s cestou)\n Každé isbn musí být na řádku zvlášť\n')
 
 def searchISBNFromInput():
     for n in input('Zadejte isbn jako čísla oddělená čárkou\n').split(","):
